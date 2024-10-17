@@ -309,6 +309,8 @@ private:
 
 public :
 
+	symbol_table(symbol_table&& other) { this->factory = std::move(other.factory); }
+
 	symbol_table() : factory(new SymbolFactory<symbol_class>()) {};
 
 	void setFactory(SymbolFactory<symbol_class> * sf)

@@ -694,11 +694,11 @@ const goal * DerivationRules::NNF(const goal * gl) const
 
 
 			 				const_cast<goal*>(NNF(new neg_goal(const_cast<goal*>(qg->getGoal())))),
-			 				new var_symbol_table(*const_cast<var_symbol_table*>(qg->getSymTab())));
+			 				new var_symbol_table(const_cast<var_symbol_table&&>(*qg->getSymTab())));
 			else
 				ans = new qfied_goal(E_EXISTS,new var_symbol_list(*const_cast<var_symbol_list*>(qg->getVars())),
 							const_cast<goal*>(NNF(new neg_goal(const_cast<goal*>(qg->getGoal())))),
-							new var_symbol_table(*const_cast<var_symbol_table*>(qg->getSymTab())));
+							new var_symbol_table(const_cast<var_symbol_table&&>(*qg->getSymTab())));
 			
 
 			return ans;
@@ -772,11 +772,11 @@ const goal * DerivationRules::NNF(const goal * gl) const
 		if(qg->getQuantifier() == E_EXISTS)
 		 	ans = new qfied_goal(E_EXISTS,new var_symbol_list(*const_cast<var_symbol_list*>(qg->getVars())),
 		 				const_cast<goal*>(NNF(const_cast<goal*>(qg->getGoal()))),
-		 				new var_symbol_table(*const_cast<var_symbol_table*>(qg->getSymTab())));
+		 				new var_symbol_table(const_cast<var_symbol_table&&>(*qg->getSymTab())));
 		else
 			ans = new qfied_goal(E_FORALL,new var_symbol_list(*const_cast<var_symbol_list*>(qg->getVars())),
 						const_cast<goal*>(NNF(const_cast<goal*>(qg->getGoal()))),
-		 				new var_symbol_table(*const_cast<var_symbol_table*>(qg->getSymTab())));
+		 				new var_symbol_table(const_cast<var_symbol_table&&>(*qg->getSymTab())));
 		
 		return ans;
 

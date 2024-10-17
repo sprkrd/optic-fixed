@@ -3007,9 +3007,9 @@ void QfiedGoal::write(ostream & o) const
 	*/
 	unique_ptr<WriteController> w(parse_category::recoverWriteController());
 	unique_ptr<WriteController> p(new PrettyPrinter());
-	parse_category::setWriteController(p);
+	parse_category::setWriteController(move(p));
   o<< *qg << "\n";
-  	parse_category::setWriteController(w);
+  	parse_category::setWriteController(move(w));
   //"(QfiedGoal)";
 };
 

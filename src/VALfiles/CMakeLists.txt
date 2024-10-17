@@ -2,11 +2,6 @@ cmake_minimum_required(VERSION 2.4)
 
 project(val)
 
-set( CMAKE_MODULE_PATH    ${CMAKE_MODULE_PATH}
-                          ${CMAKE_CURRENT_SOURCE_DIR}
-                          ${CMAKE_CURRENT_SOURCE_DIR}/..
-                          ${CMAKE_CURRENT_SOURCE_DIR}/../cmake/modules)
-
 set(DOXYFILE_TARGET_SUFFIX val)
 include(UseDoxygen OPTIONAL)
 
